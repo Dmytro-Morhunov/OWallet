@@ -1,7 +1,6 @@
 package helpers
 
 import (
-	"fmt"
 	"net/http"
 
 	"github.com/golang-jwt/jwt"
@@ -18,18 +17,16 @@ func AuthorizationMiddleware(next echo.HandlerFunc) echo.HandlerFunc {
 		if len(token) <= 0 {
 			return c.JSON(
 				http.StatusUnauthorized,
-				map[string]any{"message": "error"},
+				map[string]any{"message": "Invalid token!"},
 			)
 		}
-
-		fmt.Println("SomeMiddleware")
 
 		claims, err = VerifyToken(token)
 
 		if err != nil {
 			return c.JSON(
 				http.StatusUnauthorized,
-				map[string]any{"message": "error"},
+				map[string]any{"message": err},
 			)
 		}
 

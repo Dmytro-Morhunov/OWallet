@@ -1,7 +1,6 @@
 package controller
 
 import (
-	"crypto/rand"
 	"fmt"
 	"net/http"
 	"time"
@@ -9,7 +8,6 @@ import (
 	"OWallet.com/app/helpers"
 	"OWallet.com/app/models"
 	"OWallet.com/app/service"
-	"github.com/golang-jwt/jwt"
 	"github.com/labstack/echo/v4"
 	"golang.org/x/crypto/bcrypt"
 )
@@ -22,14 +20,14 @@ type UserController struct {
 func InitUserController(g *echo.Group) {
 	// Auth
 	g.POST("/login", Login)
-	g.POST("/register", Register)
+	g.POST("/register", Registration)
 
 	// User
-	g.GET("/users", GetUsers)
+	g.GET("/users", GetUsers, helpers.AuthorizationMiddleware)
 	g.GET("/user/:id", GetUser, helpers.AuthorizationMiddleware)
-	g.DELETE("/user/:id", DeleteUser)
-	g.PUT("/user", UpdateUser)
-	g.POST("/user", CreateUer)
+	g.DELETE("/user/:id", DeleteUser, helpers.AuthorizationMiddleware)
+	g.PUT("/user", UpdateUser, helpers.AuthorizationMiddleware)
+	g.POST("/user", CreateUer, helpers.AuthorizationMiddleware)
 }
 
 // Login
@@ -49,7 +47,6 @@ func Login(c echo.Context) error {
 
 	// Find user
 	user, dbError := service.GetUserByEmail(email)
-	fmt.Println(user, "dbUser")
 	if dbError != nil {
 		return c.JSON(http.StatusInternalServerError, map[string]interface{}{
 			"message": "Internal server error",
@@ -58,7 +55,6 @@ func Login(c echo.Context) error {
 
 	// Compare passwords
 	err = bcrypt.CompareHashAndPassword([]byte(user.Password), []byte(password))
-	fmt.Println(err, "PASSWORD ERROR")
 	if err != nil {
 		fmt.Println("Invalid Password:", err)
 		return c.JSON(http.StatusUnauthorized, map[string]interface{}{
@@ -66,20 +62,8 @@ func Login(c echo.Context) error {
 		})
 	}
 
-	secretKey := make([]byte, 64)
-	_, generateError := rand.Read(secretKey)
-	if generateError != nil {
-		return c.JSON(http.StatusInternalServerError, map[string]interface{}{
-			"message": "Internal server error",
-		})
-	}
-
 	// Generate JWT token
-	claims := jwt.NewWithClaims(jwt.SigningMethodHS256, jwt.MapClaims{
-		"sub": user.Email,
-		"exp": time.Now().Add(time.Hour * 24).Unix(), // Expires in 24 hours
-	})
-	token, err := claims.SignedString([]byte(secretKey))
+	token, err := helpers.CreateToken(email)
 	if err != nil {
 		fmt.Println("Error generating token:", err)
 		return c.JSON(http.StatusInternalServerError, map[string]interface{}{
@@ -184,19 +168,28 @@ func CreateUer(c echo.Context) error {
 	return c.JSON(http.StatusOK, map[string]interface{}{})
 }
 
-func Register(c echo.Context) error {
+func Registration(c echo.Context) error {
 	var user models.User
-	var err, json_map = ParseRequestBodyTo(c)
+	var parseError, json_map = ParseRequestBodyTo(c)
+	if parseError != nil {
+		return c.JSON(http.StatusInternalServerError, map[string]interface{}{
+			"message": "Internal server error!",
+		})
+	}
+
 	user.First_name = GetKeyByValue(json_map, "first_name")
 	user.Last_name = GetKeyByValue(json_map, "last_name")
 	user.Age = GetKeyByValue(json_map, "age")
 	user.Email = GetKeyByValue(json_map, "email")
 	hashedPassword, err := bcrypt.GenerateFromPassword([]byte(GetKeyByValue(json_map, "password")), bcrypt.DefaultCost)
-
 	user.Password = string(hashedPassword)
 
-	fmt.Println("json_map ", json_map)
-	fmt.Println("err ", err)
+	if err != nil {
+		return c.JSON(http.StatusBadRequest, map[string]interface{}{
+			"message": "Incorrect data",
+		})
+	}
+
 	service.CreateUser(user)
 	return c.JSON(http.StatusOK, map[string]interface{}{
 		"message": "User registered successfully",

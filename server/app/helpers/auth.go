@@ -1,32 +1,38 @@
 package helpers
 
 import (
+	"crypto/rand"
 	"errors"
 	"time"
 
 	"github.com/golang-jwt/jwt"
 )
 
-var secretKey = []byte("secret-key")
+var SecretKey = make([]byte, 64)
 
 func CreateToken(email string) (string, error) {
-	token := jwt.NewWithClaims(jwt.SigningMethodHS256,
+	_, generateError := rand.Read(SecretKey)
+	if generateError != nil {
+		return "", generateError
+	}
+
+	claims := jwt.NewWithClaims(jwt.SigningMethodHS256,
 		jwt.MapClaims{
 			"email": email,
 			"exp":   time.Now().Add(time.Hour * 24).Unix(),
 		})
 
-	tokenString, err := token.SignedString(secretKey)
+	token, err := claims.SignedString(SecretKey)
 	if err != nil {
 		return "", err
 	}
 
-	return tokenString, nil
+	return token, nil
 }
 
 func VerifyToken(tokenString string) (jwt.Claims, error) {
 	token, err := jwt.Parse(tokenString, func(token *jwt.Token) (interface{}, error) {
-		return secretKey, nil
+		return SecretKey, nil
 	})
 
 	if err != nil {
