@@ -20,7 +20,7 @@ type UserController struct {
 func InitUserController(g *echo.Group) {
 	// Auth
 	g.POST("/login", Login)
-	g.POST("/register", Registration)
+	g.POST("/registration", Registration)
 
 	// User
 	g.GET("/users", GetUsers, helpers.AuthorizationMiddleware)
@@ -30,12 +30,12 @@ func InitUserController(g *echo.Group) {
 	g.POST("/user", CreateUer, helpers.AuthorizationMiddleware)
 }
 
-// Login
+// Login godoc
 // @Title Login
 // @Tags Auth
 // @Accept json
 // @Produce json
-// @Param creds body models.User.Email true "Login"
+// @Param Body body models.LoginBody true "Credentials"
 // @Success 200 {object} map[string]interface{}
 // @Router /api/login [post]
 func Login(c echo.Context) error {
@@ -78,6 +78,7 @@ func Login(c echo.Context) error {
 // Get users godoc
 // @Title Get users
 // @Tags Users
+// @Param Authorization header string true "Authorization" default(Add access token here)
 // @Accept json
 // @Produce json
 // @Success 200 {object} map[string]interface{}
@@ -92,7 +93,7 @@ func GetUsers(c echo.Context) error {
 // Get user godoc
 // @Title Get user
 // @Tags Users
-// @Param Authorization header string true "Authorization" default(Bearer <Add access token here>)
+// @Param Authorization header string true "Authorization" default(Add access token here)
 // @Param	id	path	int	true	"User ID"
 // @Accept json
 // @Produce json
@@ -112,6 +113,7 @@ func GetUser(c echo.Context) error {
 // Update user godoc
 // @Title Update user
 // @Tags Users
+// @Param Authorization header string true "Authorization" default(Add access token here)
 // @Accept json
 // @Produce json
 // @Success 200 {object} map[string]interface{}
@@ -129,8 +131,9 @@ func UpdateUser(c echo.Context) error {
 // Delete user godoc
 // @Title Delete user
 // @Tags Users
+// @Param Authorization header string true "Authorization" default(Add access token here)
 // @Accept json
-// @Param			id	path		int	true	"User ID"
+// @Param id path int true "User ID"
 // @Produce json
 // @Success 200 {object} map[string]interface{}
 // @Router /api/user/{id} [delete]
@@ -145,6 +148,7 @@ func DeleteUser(c echo.Context) error {
 // Create user godoc
 // @Title Create user
 // @Tags Users
+// @Param Authorization header string true "Authorization" default(Add access token here)
 // @Accept json
 // @Param user body models.User true "Create user"
 // @Produce json
@@ -168,6 +172,15 @@ func CreateUer(c echo.Context) error {
 	return c.JSON(http.StatusOK, map[string]interface{}{})
 }
 
+// Registration godoc
+// @Title Registration
+// @Tags Auth
+// @Param Authorization header string true "Authorization" default(Add access token here)
+// @Accept json
+// @Produce json
+// @Param Body body models.RegistrationBody true "Credentials"
+// @Success 200 {object} map[string]interface{}
+// @Router /api/registration [post]
 func Registration(c echo.Context) error {
 	var user models.User
 	var parseError, json_map = ParseRequestBodyTo(c)

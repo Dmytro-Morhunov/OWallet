@@ -1,4 +1,27 @@
 definitions:
+  models.LoginBody:
+    properties:
+      email:
+        example: JohnDoe@mail.com
+        type: string
+      password:
+        type: string
+    type: object
+  models.RegistrationBody:
+    properties:
+      age:
+        example: "21"
+        type: string
+      email:
+        example: JohnDoe@mail.com
+        type: string
+      first_name:
+        example: John
+        type: string
+      last_name:
+        example: Doe
+        type: string
+    type: object
   models.User:
     properties:
       age:
@@ -30,12 +53,33 @@ paths:
       consumes:
       - application/json
       parameters:
-      - description: Login
+      - description: Credentials
         in: body
-        name: creds
+        name: Body
         required: true
         schema:
-          $ref: '#/definitions/models.User'
+          $ref: '#/definitions/models.LoginBody'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties: true
+            type: object
+      tags:
+      - Auth
+  /api/registration:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: Credentials
+        in: body
+        name: Body
+        required: true
+        schema:
+          $ref: '#/definitions/models.RegistrationBody'
       produces:
       - application/json
       responses:
@@ -91,7 +135,8 @@ paths:
       consumes:
       - application/json
       parameters:
-      - description: Authorization
+      - default: Bearer <Add access token here>
+        description: Authorization
         in: header
         name: Authorization
         required: true

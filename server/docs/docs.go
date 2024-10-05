@@ -28,12 +28,45 @@ const docTemplate = `{
                 ],
                 "parameters": [
                     {
-                        "description": "Login",
-                        "name": "creds",
+                        "description": "Credentials",
+                        "name": "Body",
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/models.User"
+                            "$ref": "#/definitions/models.LoginBody"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object",
+                            "additionalProperties": true
+                        }
+                    }
+                }
+            }
+        },
+        "/api/registration": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Auth"
+                ],
+                "parameters": [
+                    {
+                        "description": "Credentials",
+                        "name": "Body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.RegistrationBody"
                         }
                     }
                 ],
@@ -95,6 +128,7 @@ const docTemplate = `{
                 "parameters": [
                     {
                         "type": "string",
+                        "default": "Bearer \u003cAdd access token here\u003e",
                         "description": "Authorization",
                         "name": "Authorization",
                         "in": "header",
@@ -192,6 +226,39 @@ const docTemplate = `{
         }
     },
     "definitions": {
+        "models.LoginBody": {
+            "type": "object",
+            "properties": {
+                "email": {
+                    "type": "string",
+                    "example": "JohnDoe@mail.com"
+                },
+                "password": {
+                    "type": "string"
+                }
+            }
+        },
+        "models.RegistrationBody": {
+            "type": "object",
+            "properties": {
+                "age": {
+                    "type": "string",
+                    "example": "21"
+                },
+                "email": {
+                    "type": "string",
+                    "example": "JohnDoe@mail.com"
+                },
+                "first_name": {
+                    "type": "string",
+                    "example": "John"
+                },
+                "last_name": {
+                    "type": "string",
+                    "example": "Doe"
+                }
+            }
+        },
         "models.User": {
             "type": "object",
             "properties": {
