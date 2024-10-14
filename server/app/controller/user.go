@@ -27,7 +27,7 @@ func InitUserController(g *echo.Group) {
 	g.GET("/user/:id", GetUser, helpers.AuthorizationMiddleware)
 	g.DELETE("/user/:id", DeleteUser, helpers.AuthorizationMiddleware)
 	g.PUT("/user", UpdateUser, helpers.AuthorizationMiddleware)
-	g.POST("/user", CreateUer, helpers.AuthorizationMiddleware)
+	g.POST("/user", CreateUser, helpers.AuthorizationMiddleware)
 }
 
 // Login godoc
@@ -42,8 +42,6 @@ func Login(c echo.Context) error {
 	var err, json_map = ParseRequestBodyTo(c)
 	email := GetKeyByValue(json_map, "email")
 	password := GetKeyByValue(json_map, "password")
-	fmt.Println("Email: ", email)
-	fmt.Println("Password: ", password)
 
 	// Find user
 	user, dbError := service.GetUserByEmail(email)
@@ -139,8 +137,6 @@ func UpdateUser(c echo.Context) error {
 // @Router /api/user/{id} [delete]
 func DeleteUser(c echo.Context) error {
 	id := c.Param("id")
-	fmt.Println("id: ", id)
-
 	service.DeleteUser(id)
 	return c.JSON(http.StatusOK, map[string]interface{}{})
 }
@@ -154,10 +150,15 @@ func DeleteUser(c echo.Context) error {
 // @Produce json
 // @Success 200 {object} map[string]interface{}
 // @Router /api/user [post]
-func CreateUer(c echo.Context) error {
+func CreateUser(c echo.Context) error {
 	var bytes []byte
 	var user models.User
 	var err, json_map = ParseRequestBodyTo(c)
+	if err != nil {
+		return c.JSON(http.StatusInternalServerError, map[string]interface{}{
+			"message": "Internal server error!",
+		})
+	}
 	user.First_name = GetKeyByValue(json_map, "first_name")
 	user.Last_name = GetKeyByValue(json_map, "last_name")
 	user.Age = GetKeyByValue(json_map, "age")
@@ -166,8 +167,6 @@ func CreateUer(c echo.Context) error {
 	bytes, err = bcrypt.GenerateFromPassword([]byte(passwordStr), 14)
 	user.Password = string(bytes)
 	user.Expired_At = time.Now().UTC()
-	fmt.Println("json_map ", json_map)
-	fmt.Println("err ", err)
 	service.CreateUser(user)
 	return c.JSON(http.StatusOK, map[string]interface{}{})
 }

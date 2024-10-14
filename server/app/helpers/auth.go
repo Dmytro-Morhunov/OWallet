@@ -3,6 +3,7 @@ package helpers
 import (
 	"crypto/rand"
 	"errors"
+	"fmt"
 	"time"
 
 	"github.com/golang-jwt/jwt"
@@ -11,6 +12,9 @@ import (
 var SecretKey = make([]byte, 64)
 
 func CreateToken(email string) (string, error) {
+	if len(email) < 1 {
+		return "", fmt.Errorf("email should not be empty")
+	}
 	_, generateError := rand.Read(SecretKey)
 	if generateError != nil {
 		return "", generateError
