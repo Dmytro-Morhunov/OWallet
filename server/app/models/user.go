@@ -7,6 +7,7 @@ type User struct {
 	ID         uint `gorm:"primarykey"`
 	Expired_At time.Time
 	RegistrationBody
+	WalletsIDs []uint `gorm:"primarykey"`
 }
 
 type LoginBody struct {

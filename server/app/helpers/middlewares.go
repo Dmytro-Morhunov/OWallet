@@ -7,7 +7,6 @@ import (
 	"github.com/labstack/echo/v4"
 )
 
-func Middlewares() {}
 func AuthorizationMiddleware(next echo.HandlerFunc) echo.HandlerFunc {
 	return func(c echo.Context) error {
 		var claims jwt.Claims
