@@ -44,3 +44,15 @@ build-swagger:
 
 start-dev:
 	nodemon --exec go run main.go --signal SIGTERM swag init --parseDependency --parseInternal
+
+create_migration:
+    migrate create -ext=sql -dir=app/database/migrations -seq init
+
+migrate_up:
+	migrate -path=app/database/migrations -database "postgresql://postgres:localhost@localhost:5431/postgres?sslmode=disable" -verbose up
+
+migrate_down:
+	migrate -path=app/database/migrations -database "postgresql://postgres:localhost@localhost:5431/postgres?sslmode=disable" -verbose down
+
+migration_fix_version:
+	migrate -path=app/database/migrations -database "postgresql://postgres:localhost@localhost:5431/postgres?sslmode=disable" force 1

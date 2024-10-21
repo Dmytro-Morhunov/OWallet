@@ -3,8 +3,8 @@ package service
 import (
 	"fmt"
 
+	"OWallet.com/app/database"
 	"OWallet.com/app/models"
-	"OWallet.com/database"
 )
 
 func GetUsers() []models.User {
@@ -31,7 +31,9 @@ func GetUser(id string) (models.User, error) {
 }
 
 func CreateUser(user models.User) {
-	database.DB.Create(&user)
+	fmt.Println(user, "user")
+	var error = database.DB.Table("users").Create(&user)
+	fmt.Println(error, "error")
 	fmt.Println(user.ID, "User created with id: %q")
 }
 

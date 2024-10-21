@@ -1,7 +1,7 @@
 package tests
 
 import (
-	"OWallet.com/database"
+	"OWallet.com/app/database"
 	"gopkg.in/DATA-DOG/go-sqlmock.v1"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"

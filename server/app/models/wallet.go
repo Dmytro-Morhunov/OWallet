@@ -7,10 +7,10 @@ type Wallet struct {
 	CurrencyType CryptoCurrencyAlias
 }
 
-type CryptoCurrencyAlias = string
+type CryptoCurrencyAlias = int
 
-type CryptoCurrencyType struct {
-	Bitcoin  CryptoCurrencyAlias
-	USDT     CryptoCurrencyAlias
-	Ethereum CryptoCurrencyAlias
-}
+const (
+	Bitcoin CryptoCurrencyAlias = iota
+	USDT
+	Ethereum
+)

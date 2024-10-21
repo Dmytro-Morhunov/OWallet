@@ -2,7 +2,7 @@ package main
 
 import (
 	"OWallet.com/app/controller"
-	"OWallet.com/database"
+	"OWallet.com/app/database"
 	_ "OWallet.com/docs"
 
 	"github.com/labstack/echo/v4"
