@@ -1,0 +1,3 @@
+ALTER TABLE wallets 
+DROP CONSTRAINT IF EXISTS fk_user_id,
+DROP COLUMN IF EXISTS user_id;

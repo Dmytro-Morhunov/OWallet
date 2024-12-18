@@ -33,6 +33,8 @@ func main() {
 
 	// User Routes
 	controller.InitUserController(apiGroup)
+	// Wallet Routes
+	controller.InitWalletController(apiGroup)
 
 	// Start server
 	e.Logger.Fatal(e.Start(":8080"))

@@ -10,11 +10,11 @@ import (
 
 var DB *gorm.DB
 
-var Dialector = postgres.Open("host=localhost user=postgres password=postgres dbname=postgres port=5431 sslmode=disable TimeZone=Asia/Shanghai")
+var Dialector = postgres.Open("host=localhost user=postgres password=1234 dbname=postgres port=5432 sslmode=prefer TimeZone=Asia/Shanghai")
 
 func ConnectToDB() {
 
-	// url := "postgres://postgres:password@localhost:5431/postgres"
+	// url := "postgres://postgres:password@localhost:5432/postgres"
 	conn, err := gorm.Open(Dialector, &gorm.Config{})
 
 	if err != nil {
