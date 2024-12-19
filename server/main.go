@@ -29,6 +29,7 @@ func main() {
 	e.Use(middleware.CORS())
 
 	// Routes
+	// http://localhost:8080/swagger/index.html
 	e.GET("/swagger/*", echoSwagger.WrapHandler)
 
 	// User Routes

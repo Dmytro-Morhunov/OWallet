@@ -61,6 +61,14 @@ const docTemplate = `{
                 ],
                 "parameters": [
                     {
+                        "type": "string",
+                        "default": "Add access token here",
+                        "description": "Authorization",
+                        "name": "Authorization",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
                         "description": "Credentials",
                         "name": "Body",
                         "in": "body",
@@ -93,6 +101,14 @@ const docTemplate = `{
                     "Users"
                 ],
                 "parameters": [
+                    {
+                        "type": "string",
+                        "default": "Add access token here",
+                        "description": "Authorization",
+                        "name": "Authorization",
+                        "in": "header",
+                        "required": true
+                    },
                     {
                         "description": "Create user",
                         "name": "user",
@@ -128,7 +144,7 @@ const docTemplate = `{
                 "parameters": [
                     {
                         "type": "string",
-                        "default": "Bearer \u003cAdd access token here\u003e",
+                        "default": "Add access token here",
                         "description": "Authorization",
                         "name": "Authorization",
                         "in": "header",
@@ -162,6 +178,16 @@ const docTemplate = `{
                 "tags": [
                     "Users"
                 ],
+                "parameters": [
+                    {
+                        "type": "string",
+                        "default": "Add access token here",
+                        "description": "Authorization",
+                        "name": "Authorization",
+                        "in": "header",
+                        "required": true
+                    }
+                ],
                 "responses": {
                     "200": {
                         "description": "OK",
@@ -183,6 +209,14 @@ const docTemplate = `{
                     "Users"
                 ],
                 "parameters": [
+                    {
+                        "type": "string",
+                        "default": "Add access token here",
+                        "description": "Authorization",
+                        "name": "Authorization",
+                        "in": "header",
+                        "required": true
+                    },
                     {
                         "type": "integer",
                         "description": "User ID",
@@ -213,6 +247,69 @@ const docTemplate = `{
                 "tags": [
                     "Users"
                 ],
+                "parameters": [
+                    {
+                        "type": "string",
+                        "default": "Add access token here",
+                        "description": "Authorization",
+                        "name": "Authorization",
+                        "in": "header",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object",
+                            "additionalProperties": true
+                        }
+                    }
+                }
+            }
+        },
+        "/api/wallets": {
+            "get": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Wallets"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object",
+                            "additionalProperties": true
+                        }
+                    }
+                }
+            },
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Wallets"
+                ],
+                "parameters": [
+                    {
+                        "description": "Create wallet",
+                        "name": "wallet",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.Wallet"
+                        }
+                    }
+                ],
                 "responses": {
                     "200": {
                         "description": "OK",
@@ -226,6 +323,19 @@ const docTemplate = `{
         }
     },
     "definitions": {
+        "models.CryptoCurrencyAlias": {
+            "type": "integer",
+            "enum": [
+                0,
+                1,
+                2
+            ],
+            "x-enum-varnames": [
+                "Bitcoin",
+                "USDT",
+                "Ethereum"
+            ]
+        },
         "models.LoginBody": {
             "type": "object",
             "properties": {
@@ -283,6 +393,32 @@ const docTemplate = `{
                 "last_name": {
                     "type": "string",
                     "example": "Doe"
+                },
+                "walletsIDs": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    }
+                }
+            }
+        },
+        "models.Wallet": {
+            "type": "object",
+            "properties": {
+                "balance": {
+                    "type": "number"
+                },
+                "currency_Type": {
+                    "$ref": "#/definitions/models.CryptoCurrencyAlias"
+                },
+                "id": {
+                    "type": "integer"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "userID": {
+                    "$ref": "#/definitions/models.User"
                 }
             }
         }

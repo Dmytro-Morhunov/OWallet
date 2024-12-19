@@ -1,6 +1,0 @@
-{
-  "notebook.formatOnSave.enabled": true,
-  "editor.formatOnSave": true,
-  "editor.formatOnSaveMode": "modifications",
-  "editor.defaultFormatter": "esbenp.prettier-vscode"
-}
