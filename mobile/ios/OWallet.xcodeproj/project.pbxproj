@@ -7,13 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		00B36E95F5E947759067A465 /* Rockwell-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9DCBA4D4C1C84FDF831FA2C7 /* Rockwell-ExtraBold.ttf */; };
 		00E356F31AD99517003FC87E /* OWalletTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* OWalletTests.m */; };
 		0C80B921A6F3F58F76C31292 /* libPods-OWallet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DCACB8F33CDC322A6C60F78 /* libPods-OWallet.a */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		2529AC04EA914EA793138056 /* Rockwell-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 796B8EC32DD9406B9FA15B77 /* Rockwell-BoldItalic.ttf */; };
+		27BF678809CE43B1BB10B100 /* Rockwell-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 52DB9BDDE145424685C8B2AC /* Rockwell-ExtraBoldItalic.ttf */; };
+		3E03460E48E8403898DABA60 /* Rockwell-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D4E6E6D282284F6A9CF3B797 /* Rockwell-LightItalic.ttf */; };
+		4AFDA423ACBE644AADDCCBA5 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */; };
+		58126D78ACE442B786770BF4 /* Rockwell-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 57E0C44A75F54D0BAD579A97 /* Rockwell-Italic.ttf */; };
+		67F49A122E8F4B7DA45C5347 /* Rockwell-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A5393D71BF804CE098D38991 /* Rockwell-Light.ttf */; };
 		7699B88040F8A987B510C191 /* libPods-OWallet-OWalletTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-OWallet-OWalletTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		C8178CD893314E93BCDFA09A /* Rockwell-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3AA9E212540847D19691DBF5 /* Rockwell-Bold.ttf */; };
+		D31C56B2D1FA4B399083BBE6 /* Rockwell-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 89C04BCD3C9A4C60BAEE2458 /* Rockwell-Regular.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,12 +47,20 @@
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = OWallet/main.m; sourceTree = "<group>"; };
 		13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = PrivacyInfo.xcprivacy; path = OWallet/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		19F6CBCC0A4E27FBF8BF4A61 /* libPods-OWallet-OWalletTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-OWallet-OWalletTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3AA9E212540847D19691DBF5 /* Rockwell-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Rockwell-Bold.ttf"; path = "../assets/fonts/Rockwell-Bold.ttf"; sourceTree = "<group>"; };
 		3B4392A12AC88292D35C810B /* Pods-OWallet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OWallet.debug.xcconfig"; path = "Target Support Files/Pods-OWallet/Pods-OWallet.debug.xcconfig"; sourceTree = "<group>"; };
+		52DB9BDDE145424685C8B2AC /* Rockwell-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Rockwell-ExtraBoldItalic.ttf"; path = "../assets/fonts/Rockwell-ExtraBoldItalic.ttf"; sourceTree = "<group>"; };
 		5709B34CF0A7D63546082F79 /* Pods-OWallet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OWallet.release.xcconfig"; path = "Target Support Files/Pods-OWallet/Pods-OWallet.release.xcconfig"; sourceTree = "<group>"; };
+		57E0C44A75F54D0BAD579A97 /* Rockwell-Italic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Rockwell-Italic.ttf"; path = "../assets/fonts/Rockwell-Italic.ttf"; sourceTree = "<group>"; };
 		5B7EB9410499542E8C5724F5 /* Pods-OWallet-OWalletTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OWallet-OWalletTests.debug.xcconfig"; path = "Target Support Files/Pods-OWallet-OWalletTests/Pods-OWallet-OWalletTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5DCACB8F33CDC322A6C60F78 /* libPods-OWallet.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-OWallet.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		796B8EC32DD9406B9FA15B77 /* Rockwell-BoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Rockwell-BoldItalic.ttf"; path = "../assets/fonts/Rockwell-BoldItalic.ttf"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = OWallet/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		89C04BCD3C9A4C60BAEE2458 /* Rockwell-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Rockwell-Regular.ttf"; path = "../assets/fonts/Rockwell-Regular.ttf"; sourceTree = "<group>"; };
 		89C6BE57DB24E9ADA2F236DE /* Pods-OWallet-OWalletTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OWallet-OWalletTests.release.xcconfig"; path = "Target Support Files/Pods-OWallet-OWalletTests/Pods-OWallet-OWalletTests.release.xcconfig"; sourceTree = "<group>"; };
+		9DCBA4D4C1C84FDF831FA2C7 /* Rockwell-ExtraBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Rockwell-ExtraBold.ttf"; path = "../assets/fonts/Rockwell-ExtraBold.ttf"; sourceTree = "<group>"; };
+		A5393D71BF804CE098D38991 /* Rockwell-Light.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Rockwell-Light.ttf"; path = "../assets/fonts/Rockwell-Light.ttf"; sourceTree = "<group>"; };
+		D4E6E6D282284F6A9CF3B797 /* Rockwell-LightItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Rockwell-LightItalic.ttf"; path = "../assets/fonts/Rockwell-LightItalic.ttf"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -124,6 +141,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				BBD78D7AC51CEA395F1C20DB /* Pods */,
+				BA0A15BF9E96406BB101CCEB /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -137,6 +155,22 @@
 				00E356EE1AD99517003FC87E /* OWalletTests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		BA0A15BF9E96406BB101CCEB /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				3AA9E212540847D19691DBF5 /* Rockwell-Bold.ttf */,
+				796B8EC32DD9406B9FA15B77 /* Rockwell-BoldItalic.ttf */,
+				9DCBA4D4C1C84FDF831FA2C7 /* Rockwell-ExtraBold.ttf */,
+				52DB9BDDE145424685C8B2AC /* Rockwell-ExtraBoldItalic.ttf */,
+				57E0C44A75F54D0BAD579A97 /* Rockwell-Italic.ttf */,
+				A5393D71BF804CE098D38991 /* Rockwell-Light.ttf */,
+				D4E6E6D282284F6A9CF3B797 /* Rockwell-LightItalic.ttf */,
+				89C04BCD3C9A4C60BAEE2458 /* Rockwell-Regular.ttf */,
+			);
+			name = Resources;
+			path = "";
 			sourceTree = "<group>";
 		};
 		BBD78D7AC51CEA395F1C20DB /* Pods */ = {
@@ -245,6 +279,15 @@
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				4AFDA423ACBE644AADDCCBA5 /* PrivacyInfo.xcprivacy in Resources */,
+				C8178CD893314E93BCDFA09A /* Rockwell-Bold.ttf in Resources */,
+				2529AC04EA914EA793138056 /* Rockwell-BoldItalic.ttf in Resources */,
+				00B36E95F5E947759067A465 /* Rockwell-ExtraBold.ttf in Resources */,
+				27BF678809CE43B1BB10B100 /* Rockwell-ExtraBoldItalic.ttf in Resources */,
+				58126D78ACE442B786770BF4 /* Rockwell-Italic.ttf in Resources */,
+				67F49A122E8F4B7DA45C5347 /* Rockwell-Light.ttf in Resources */,
+				3E03460E48E8403898DABA60 /* Rockwell-LightItalic.ttf in Resources */,
+				D31C56B2D1FA4B399083BBE6 /* Rockwell-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -584,7 +627,14 @@
 					"-DFOLLY_CFG_NO_COROUTINES=1",
 					"-DFOLLY_HAVE_CLOCK_GETTIME=1",
 				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					" ",
+				);
+				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) DEBUG";
+				USE_HERMES = true;
 			};
 			name = Debug;
 		};
@@ -649,7 +699,13 @@
 					"-DFOLLY_CFG_NO_COROUTINES=1",
 					"-DFOLLY_HAVE_CLOCK_GETTIME=1",
 				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					" ",
+				);
+				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
+				USE_HERMES = true;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;

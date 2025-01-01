@@ -7,16 +7,26 @@
     "ios": "react-native run-ios",
     "lint": "eslint .",
     "start": "react-native start",
-    "test": "jest"
+    "test": "jest",
+    "link-assets": "npx react-native-asset"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.7.2",
+    "@fortawesome/free-regular-svg-icons": "^6.7.2",
+    "@fortawesome/free-solid-svg-icons": "^6.7.2",
+    "@fortawesome/react-native-fontawesome": "^0.3.2",
     "@react-navigation/native": "^7.0.4",
     "@react-navigation/native-stack": "^7.1.1",
+    "@reduxjs/toolkit": "^2.5.0",
     "formik": "^2.4.6",
     "react": "18.3.1",
     "react-native": "0.76.2",
+    "react-native-bootsplash": "^6.3.2",
     "react-native-safe-area-context": "^4.14.0",
-    "react-native-screens": "^4.3.0"
+    "react-native-screens": "^4.3.0",
+    "react-native-svg": "^15.10.1",
+    "react-redux": "^9.2.0",
+    "redux-flipper": "^2.0.3"
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",

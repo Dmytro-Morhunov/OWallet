@@ -1,0 +1,37 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "assets/fonts/Rockwell-Bold.ttf",
+      "sha1": "1a09a26b3c760ef7155b38e9c558c53827754c22"
+    },
+    {
+      "path": "assets/fonts/Rockwell-BoldItalic.ttf",
+      "sha1": "3d7e2bf78d04116119c3a290c138357886e985e3"
+    },
+    {
+      "path": "assets/fonts/Rockwell-ExtraBold.ttf",
+      "sha1": "1382c2ff1a468353e31f03a42bd934372097721e"
+    },
+    {
+      "path": "assets/fonts/Rockwell-ExtraBoldItalic.ttf",
+      "sha1": "2fbfbd17fec70d24ee4f80eea26306607fdbcac6"
+    },
+    {
+      "path": "assets/fonts/Rockwell-Italic.ttf",
+      "sha1": "2c36f99d08f7a3ca0960bb232eee11e32961af07"
+    },
+    {
+      "path": "assets/fonts/Rockwell-Light.ttf",
+      "sha1": "d7608bef7d3dbdb03848a1adb23d7fc98a0c8ccf"
+    },
+    {
+      "path": "assets/fonts/Rockwell-LightItalic.ttf",
+      "sha1": "963c3d5e2ff82fcab294efc62e76747325e7ec4b"
+    },
+    {
+      "path": "assets/fonts/Rockwell-Regular.ttf",
+      "sha1": "dc9640def1753de92a1dab14b6c9c00e35d9050a"
+    }
+  ]
+}
